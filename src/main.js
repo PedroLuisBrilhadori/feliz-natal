@@ -49,9 +49,14 @@ function messageSetup(event) {
 } 
 
 function shareSetup(event) {
-    let name = getName();
-    let text = `${name}, digite o nome do amigo que você quer mandar este cartão`
-    changeCard('Compartilhar cartão', text);
+    if(isName()){
+        let name = getName();
+        let text = `${name}, digite o nome do amigo que você quer mandar este cartão`
+        changeCard('Compartilhar cartão', text);
+    } else {
+        let text = `Digite o nome do amigo que você quer mandar este cartão`
+        changeCard('Compartilhar cartão', text);
+    }
 
     convertButton(true);
     document.getElementById('input_card').removeAttribute('hidden');
