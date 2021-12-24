@@ -16,7 +16,11 @@ function init() {
         backgroudSlider();
     }, time);
 
-    if(isName()){
+    let audio = new Audio('../assets/music.mp3')
+    
+    audio.play()
+
+  if(isName()){
         setTimeout(() => {
             let name = getName();
             changeCard('Nome Encontrado!', `${name.de}, te enviou um cartão, clique para ver!`);
