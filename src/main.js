@@ -1,17 +1,20 @@
 init();
 
 function init() {
+    let time = 3000;
     let buttonOk = document.getElementById('button_ok');
     let buttonShare = document.getElementById('share_icon');
+
     backgroudSlider();
+    buttonOk.style.color = 'red';
 
     setInterval(() => {
         cardBlinker();
-    }, 500);
+    }, time);
 
     setInterval(() => {
         backgroudSlider();
-    }, 4000);
+    }, time);
 
     setTimeout(() => {
         changeCard('Nome Encontrado!', 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino');
@@ -26,6 +29,7 @@ function init() {
 
 function backgroudSlider() {
     document.body.style.background = `url('../assets/${randomNumbers(1, 15)}.jpg')`;
+    console.log(document.body.style.background);
 }
 
 function randomNumbers(min, max) {
@@ -37,6 +41,10 @@ function messageSetup(event) {
         let name = getName();
         let text = `${name}, desejo a você um feliz natal!`
         changeCard(`Feliz Natal, ${name}`, text);
+        document.getElementById('share_icon').removeAttribute('hidden');
+    } else {
+        let text = `Desejo que você tenha Natal com muitas felicidades!!`
+        changeCard(`Feliz Natal!`, text);
         document.getElementById('share_icon').removeAttribute('hidden');
     }
 } 
@@ -99,6 +107,7 @@ function cardBlinker() {
         + Math.floor(Math.random() * 255) + ","
         + Math.floor(Math.random() * 255) + ")";
         document.getElementById("blinker_card").style.background = color;
+        document.getElementById('button_ok').style.color = color;
 }
 
 
@@ -109,7 +118,7 @@ function cardBlinker() {
  */
 
 function isName() {
-    if (location.search.length > 1)
+    if (location.search.length > 10)
         return true;
     return false;
 }
