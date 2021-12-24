@@ -3,10 +3,15 @@ init();
 function init() {
     let buttonOk = document.getElementById('button_ok');
     let buttonShare = document.getElementById('share_icon');
+    backgroudSlider();
 
     setInterval(() => {
         cardBlinker();
     }, 500);
+
+    setInterval(() => {
+        backgroudSlider();
+    }, 4000);
 
     setTimeout(() => {
         changeCard('Nome Encontrado!', 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino');
@@ -19,10 +24,18 @@ function init() {
     buttonShare.addEventListener('click', shareSetup);
 }
 
+function backgroudSlider() {
+    document.body.style.background = `url('../assets/${randomNumbers(1, 15)}.jpg')`;
+}
+
+function randomNumbers(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
 function messageSetup(event) {
     if(isName()){
         let name = getName();
-        let text = `${name}, quero de desejar um feliz natal e um prospero ano novo! Se você recebeu isso, você é especial para mim. Não me pergunte como o site achou seu nome...`
+        let text = `${name}, desejo a você um feliz natal!`
         changeCard(`Feliz Natal, ${name}`, text);
         document.getElementById('share_icon').removeAttribute('hidden');
     }
