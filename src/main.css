@@ -1,5 +1,6 @@
 .demo-card-wide.mdl-card {
-    width: 512px;
+    width: 100%;
+    max-width: 600px;
     margin-right: auto;
     margin-left: auto;
   }
@@ -17,10 +18,7 @@
 
 .flex-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-}
-
-.text-input {
-  margin-right: 40px;
+  margin-left: auto;
 }
