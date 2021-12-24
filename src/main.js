@@ -2,18 +2,21 @@ init();
 
 function init() {
     setTimeout(() => {
-        changeCard();
-    }, 3000)
-
-    if(isName()){
-        let name = getName();
-    }
+        changeCard('Nome Encontrado!', 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino');
+        document.getElementById('button_ok').removeAttribute('disabled');
+        document.getElementById('button_ok').addEventListener(('click'), () => {
+            if(isName()){
+                let name = getName();
+                let text = `${name}, quero de desejar um feliz natal e um prospero ano novo! Se você recebeu isso, você é especial para mim. Não me pergunte como o site achou seu nome...`
+                changeCard(`Feliz Natal, ${name}`, text);
+            }
+        })
+    }, 3000);
 }
 
-function changeCard() {
-    document.getElementById('button_ok').removeAttribute('disabled');
-    document.getElementById('title_card').innerHTML = 'Nome Encontrado!';
-    document.getElementById('text_card').innerHTML = 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino';
+function changeCard(title, text) {
+    document.getElementById('title_card').innerHTML = title;
+    document.getElementById('text_card').innerHTML = text;
 }
 
 function isName() {
