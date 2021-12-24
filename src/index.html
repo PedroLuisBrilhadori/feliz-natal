@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link type="text/javascript" href="./main.js">
+    <title>Feliz Natal</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Natal</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./main.css">
+
 </head>
 <body>
-    <div class="menu-principal loading">
-        
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 id="title_card" class="mdl-card__title-text">Pesquisando seu nome</h2>
+      </div>
+        <div id="p2" class="config-slider mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+      <div id="text_card" class="mdl-card__supporting-text">
+        Estamos pesquisando seu nome para te desejar feliz natal.
+      </div>
+      <div class="mdl-card__actions">
+        <a id="button_ok" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          Ok
+        </a>
+      </div>
+      <div class="mdl-card__menu">
+      </div>
     </div>
+
+
+    <script type="text/javascript" src="./main.js"></script>
 </body>
 </html>

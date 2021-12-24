@@ -1,7 +1,16 @@
-.menu-principal{
+.demo-card-wide.mdl-card {
+    width: 512px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .demo-card-wide > .mdl-card__title {
+    color: #fff;
+    background: red;
+  }
+  .demo-card-wide > .mdl-card__menu {
+    color: #fff;
+  }
 
-}
-
-.loading{
-    
+  .config-slider{
+    width: 100%;
 }
