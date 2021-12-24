@@ -18,7 +18,8 @@ function init() {
 
     if(isName()){
         setTimeout(() => {
-            changeCard('Nome Encontrado!', 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino');
+            let name = getName();
+            changeCard('Nome Encontrado!', `${name.de}, te enviou um cartão, clique para ver!`);
             document.getElementById('button_ok').removeAttribute('disabled');
             document.getElementById('p2').setAttribute('hidden', true);
         }, 100);
@@ -45,8 +46,13 @@ function randomNumbers(min, max) {
 function messageSetup(event) {
     if(isName()){
         let name = getName();
-        let text = `${name}, desejo a você um feliz natal!`
-        changeCard(`Feliz Natal, ${name}`, text);
+        let text = `
+            Feliz Natal, ${name.para}! Desejo que não falte alegria, paz e muita saúde nesta época tão mágica e cheia de cores, luzes e amores. Vocês são seres humanos maravilhosos e merecem um Natal deslumbrante.
+        
+            <br><br> Ass. ${name.de}`;
+    
+
+        changeCard(`Feliz Natal, ${name.para}`, text);
         document.getElementById('share_icon').removeAttribute('hidden');
     } else {
         let text = `Desejo que você tenha Natal com muitas felicidades!!`
@@ -57,9 +63,11 @@ function messageSetup(event) {
 
 function shareSetup(event) {
     document.getElementById('button_ok').removeAttribute('hidden');
+    document.getElementById('share_icon').setAttribute('hidden', true);
+    
     if(isName()){
         let name = getName();
-        let text = `${name}, digite o nome do amigo que você quer mandar este cartão`
+        let text = `${name.para}, digite o nome do amigo que você quer mandar este cartão`
         changeCard('Compartilhar cartão', text);
     } else {
         let text = `Digite o nome do amigo que você quer mandar este cartão`
@@ -67,7 +75,8 @@ function shareSetup(event) {
     }
 
     convertButton(true);
-    document.getElementById('input_card').removeAttribute('hidden');
+    document.getElementById('nome_para').removeAttribute('hidden');
+    document.getElementById('seu_nome').removeAttribute('hidden');
 }
 
 function convertButton(send) {
@@ -85,14 +94,17 @@ function convertButton(send) {
 }
 
 async function sendLink(event) {
-    let input = document.getElementById('sample1');
+    let nome = document.getElementById('nome');
+    let para = document.getElementById('para');
     let link = 'https://feliz-natal-ten.vercel.app?=';
 
     const ShareLink = {
         title: "Feliz Natal!",
         text: 'Cartão de natal',
-        url: link + Encrypt(input.value)
+        url: `${link + Encrypt(para.value)}+${Encrypt(nome.value)}`
     };
+
+    console.log(ShareLink);
 
     try{
         await navigator.share(ShareLink)
@@ -138,8 +150,16 @@ function isName() {
 function getName() {
     let text = location.search;
     text = text.replace('?=', '');
+    let name = '';
 
-    return Decrypt(text)
+    for(let i = 0; i < text.indexOf('+'); i++){
+        name += text[i];
+    }
+
+    return {
+        de: Decrypt(text.slice(text.indexOf('+'))),
+        para: Decrypt(name),
+    }
 }
 
 function Encrypt(value)  {
