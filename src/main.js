@@ -16,7 +16,7 @@ function init() {
         backgroudSlider();
     }, time);
 
-    let audio = new Audio('../assets/music.mp3')
+    let audio = document.getElementById('my-audio');
     
     audio.play()
 
