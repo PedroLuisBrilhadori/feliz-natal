@@ -30,6 +30,7 @@ document.getElementById('my-audio').play();
         document.getElementById('p2').setAttribute('hidden', true);
         document.getElementById('button_ok').removeAttribute('disabled');
         document.getElementById('button_ok').setAttribute('hidden', true);
+        document.getElementById('my-audio').play()
         messageSetup();
     }
 
