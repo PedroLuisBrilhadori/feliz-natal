@@ -4,6 +4,7 @@
     max-width: 600px;
     margin-right: auto;
     margin-left: auto;
+    opacity: 95%;
   }
   .demo-card-wide > .mdl-card__title {
     color: #fff;
