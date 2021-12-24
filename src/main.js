@@ -1,6 +1,6 @@
 init();
 
-function init() {
+async function init() {
     let time = 3000;
     let buttonOk = document.getElementById('button_ok');
     let buttonShare = document.getElementById('share_icon');
@@ -24,9 +24,9 @@ function init() {
     media.appendChild(audio);
     audio.appendChild(source);
 
-    source.setAttribute('src', '../assets/music.mp3');
-    source.setAttribute('type', 'audio/mpeg');
+    await source.setAttribute('src', '../assets/music.mp3');
     audio.setAttribute('autoplay', true);
+    source.setAttribute('type', 'audio/mpeg');
 
     if(isName()){
         setTimeout(() => {
