@@ -43,16 +43,23 @@ function convertButton(send) {
     if(send){
         buttonOk.innerHTML = 'Enviar';
         buttonOk.removeEventListener('click', messageSetup);
-        buttonOk.addEventListener('click', sendSetup);
+        buttonOk.addEventListener('click', sendLink);
     } else {
         buttonOk.innerHTML = 'OK';
-        buttonOk.removeEventListener('click', sendSetup);
+        buttonOk.removeEventListener('click', sendLink);
         buttonOk.addEventListener('click', messageSetup);
     }
 }
 
-function sendSetup(event) {
-    console.log('encrypt name');
+function sendLink(event) {
+    let input = document.getElementById('sample1');
+    let link = 'https://feliz-natal-ten.vercel.app?=';
+
+    const ShareLink = {
+        title: "Feliz Natal!",
+        text: 'Cartão de natal',
+        url: link + Encrypt(input.value)
+    };
 }   
 
 /**
