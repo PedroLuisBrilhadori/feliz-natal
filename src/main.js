@@ -16,9 +16,6 @@ function init() {
         backgroudSlider();
     }, time);
 
-    let audio = document.getElementById('my-audio');
-    
-    audio.play()
 
   if(isName()){
         setTimeout(() => {
@@ -26,6 +23,8 @@ function init() {
             changeCard('Nome Encontrado!', `${name.de}, te enviou um cartão, clique para ver!`);
             document.getElementById('button_ok').removeAttribute('disabled');
             document.getElementById('p2').setAttribute('hidden', true);
+document.getElementById('my-audio').play();
+            
         }, 2000);
     } else {
         document.getElementById('p2').setAttribute('hidden', true);
