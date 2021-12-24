@@ -51,7 +51,7 @@ function convertButton(send) {
     }
 }
 
-function sendLink(event) {
+async function sendLink(event) {
     let input = document.getElementById('sample1');
     let link = 'https://feliz-natal-ten.vercel.app?=';
 
@@ -60,6 +60,12 @@ function sendLink(event) {
         text: 'Cartão de natal',
         url: link + Encrypt(input.value)
     };
+
+    try{
+        await navigator.share(ShareLink)
+    } catch(err){
+        console.log(err);
+    }
 }   
 
 /**
