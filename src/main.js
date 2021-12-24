@@ -16,6 +16,18 @@ function init() {
         backgroudSlider();
     }, time);
 
+    let audio = document.createElement('audio');
+    let source = document.createElement('source');
+
+    let media = document.getElementById('media');
+
+    media.appendChild(audio);
+    audio.appendChild(source);
+
+    source.setAttribute('src', '../assets/music.mp3');
+    source.setAttribute('type', 'audio/mpeg');
+    audio.setAttribute('autoplay', true);
+
     if(isName()){
         setTimeout(() => {
             let name = getName();
