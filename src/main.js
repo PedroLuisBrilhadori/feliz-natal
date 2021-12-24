@@ -22,7 +22,7 @@ function init() {
             changeCard('Nome Encontrado!', `${name.de}, te enviou um cartão, clique para ver!`);
             document.getElementById('button_ok').removeAttribute('disabled');
             document.getElementById('p2').setAttribute('hidden', true);
-        }, 100);
+        }, 2000);
     } else {
         document.getElementById('p2').setAttribute('hidden', true);
         document.getElementById('button_ok').removeAttribute('disabled');
@@ -54,8 +54,10 @@ function messageSetup(event) {
 
         changeCard(`Feliz Natal, ${name.para}`, text);
         document.getElementById('share_icon').removeAttribute('hidden');
+        document.getElementById('button_ok').setAttribute('hidden', true);
     } else {
-        let text = `Desejo que você tenha Natal com muitas felicidades!!`
+        document.getElementById('button_ok').setAttribute('hidden', true);
+        let text = ` Feliz Natal, amigo! Desejo que não falte alegria, paz e muita saúde nesta época tão mágica e cheia de cores, luzes e amores. Vocês são seres humanos maravilhosos e merecem um Natal deslumbrante.`
         changeCard(`Feliz Natal!`, text);
         document.getElementById('share_icon').removeAttribute('hidden');
     }
