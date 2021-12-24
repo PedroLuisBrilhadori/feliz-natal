@@ -1,6 +1,6 @@
 init();
 
-async function init() {
+function init() {
     let time = 3000;
     let buttonOk = document.getElementById('button_ok');
     let buttonShare = document.getElementById('share_icon');
@@ -15,18 +15,6 @@ async function init() {
     setInterval(() => {
         backgroudSlider();
     }, time);
-
-    let audio = document.createElement('audio');
-    let source = document.createElement('source');
-
-    let media = document.getElementById('media');
-
-    media.appendChild(audio);
-    audio.appendChild(source);
-
-    await source.setAttribute('src', '../assets/music.mp3');
-    audio.setAttribute('autoplay', true);
-    source.setAttribute('type', 'audio/mpeg');
 
     if(isName()){
         setTimeout(() => {
