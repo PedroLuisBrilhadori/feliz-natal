@@ -16,11 +16,18 @@ function init() {
         backgroudSlider();
     }, time);
 
-    setTimeout(() => {
-        changeCard('Nome Encontrado!', 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino');
-        document.getElementById('button_ok').removeAttribute('disabled');
+    if(isName()){
+        setTimeout(() => {
+            changeCard('Nome Encontrado!', 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino');
+            document.getElementById('button_ok').removeAttribute('disabled');
+            document.getElementById('p2').setAttribute('hidden', true);
+        }, 100);
+    } else {
         document.getElementById('p2').setAttribute('hidden', true);
-    }, 100);
+        document.getElementById('button_ok').removeAttribute('disabled');
+        document.getElementById('button_ok').setAttribute('hidden', true);
+        messageSetup();
+    }
 
     buttonOk.addEventListener('click', messageSetup);    
     
@@ -49,6 +56,7 @@ function messageSetup(event) {
 } 
 
 function shareSetup(event) {
+    document.getElementById('button_ok').removeAttribute('hidden');
     if(isName()){
         let name = getName();
         let text = `${name}, digite o nome do amigo que você quer mandar este cartão`
