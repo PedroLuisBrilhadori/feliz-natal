@@ -29,7 +29,6 @@ function init() {
 
 function backgroudSlider() {
     document.body.style.background = `url('../assets/${randomNumbers(1, 15)}.jpg')`;
-    console.log(document.body.style.background);
 }
 
 function randomNumbers(min, max) {

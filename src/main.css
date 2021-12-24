@@ -26,5 +26,36 @@
 
 body {
   background-position: center;
+}
 
+.dabby{
+  width: 200px;
+  height: 200px;
+  bottom: 80%;
+  right: 60%;
+}
+
+.natal {
+  width: 200px;
+  height: 200px;
+  top: 3%;
+  left: 60%;
+}
+
+.renas{
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 55%;
+}
+
+.violino{
+  width: 200px;
+  height: 200px;
+  top: 65%;
+  right: 45%;
+}
+
+.papai{
+  position: absolute;
 }
