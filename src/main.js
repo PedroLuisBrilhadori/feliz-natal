@@ -1,6 +1,11 @@
 init();
 
 function init() {
+
+    setInterval(() => {
+        cardBlinker();
+    }, 500);
+
     setTimeout(() => {
         changeCard('Nome Encontrado!', 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino');
         document.getElementById('button_ok').removeAttribute('disabled');
@@ -20,6 +25,15 @@ function init() {
 function changeCard(title, text) {
     document.getElementById('title_card').innerHTML = title;
     document.getElementById('text_card').innerHTML = text;
+}
+
+
+function cardBlinker() {
+    var color = "rgb("
+        + Math.floor(Math.random() * 255) + ","
+        + Math.floor(Math.random() * 255) + ","
+        + Math.floor(Math.random() * 255) + ")";
+        document.getElementById("blinker_card").style.background = color;
 }
 
 function isName() {
