@@ -1,6 +1,8 @@
 init();
 
 function init() {
+    let buttonOk = document.getElementById('button_ok');
+    let buttonShare = document.getElementById('share_icon');
 
     setInterval(() => {
         cardBlinker();
@@ -10,17 +12,54 @@ function init() {
         changeCard('Nome Encontrado!', 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino');
         document.getElementById('button_ok').removeAttribute('disabled');
         document.getElementById('p2').setAttribute('hidden', true);
-    }, 3000);
+    }, 100);
 
-    document.getElementById('button_ok').addEventListener('click', () => {
-        if(isName()){
-            let name = getName();
-            let text = `${name}, quero de desejar um feliz natal e um prospero ano novo! Se você recebeu isso, você é especial para mim. Não me pergunte como o site achou seu nome...`
-            changeCard(`Feliz Natal, ${name}`, text);
-            document.getElementById('share_icon').removeAttribute('hidden');
-        }
-    })
+    buttonOk.addEventListener('click', messageSetup);    
+    
+    buttonShare.addEventListener('click', shareSetup);
 }
+
+function messageSetup(event) {
+    if(isName()){
+        let name = getName();
+        let text = `${name}, quero de desejar um feliz natal e um prospero ano novo! Se você recebeu isso, você é especial para mim. Não me pergunte como o site achou seu nome...`
+        changeCard(`Feliz Natal, ${name}`, text);
+        document.getElementById('share_icon').removeAttribute('hidden');
+    }
+} 
+
+function shareSetup(event) {
+    let name = getName();
+    let text = `${name}, digite o nome do amigo que você quer mandar este cartão`
+    changeCard('Compartilhar cartão', text);
+
+    convertButton(true);
+    document.getElementById('input_card').removeAttribute('hidden');
+}
+
+function convertButton(send) {
+    let buttonOk = document.getElementById('button_ok');
+
+    if(send){
+        buttonOk.innerHTML = 'Enviar';
+        buttonOk.removeEventListener('click', messageSetup);
+        buttonOk.addEventListener('click', sendSetup);
+    } else {
+        buttonOk.innerHTML = 'OK';
+        buttonOk.removeEventListener('click', sendSetup);
+        buttonOk.addEventListener('click', messageSetup);
+    }
+}
+
+function sendSetup(event) {
+    console.log('encrypt name');
+}   
+
+/**
+ ----------------------------------------------------------------- * Card Functions 
+ * @param {*} title 
+ * @param {*} text 
+ */
 
 function changeCard(title, text) {
     document.getElementById('title_card').innerHTML = title;
@@ -35,6 +74,13 @@ function cardBlinker() {
         + Math.floor(Math.random() * 255) + ")";
         document.getElementById("blinker_card").style.background = color;
 }
+
+
+
+/**
+----------------------------------------------------------------- * Name functions 
+ * @returns 
+ */
 
 function isName() {
     if (location.search.length > 1)

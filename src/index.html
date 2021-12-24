@@ -21,9 +21,17 @@
         Estamos pesquisando seu nome para te desejar feliz natal.
       </div>
       <div class="mdl-card__actions">
-        <a id="button_ok" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-          Ok
-        </a>
+        <div class="flex-container">
+            <form id="input_card" hidden action="#">
+                <div class="text-input mdl-textfield mdl-js-textfield">
+                  <input class="mdl-textfield__input" type="text" id="sample1">
+                  <label class="mdl-textfield__label" for="sample1">Nome...</label>
+                </div>
+            </form>
+            <a id="button_ok" disabled class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              Ok
+            </a>
+        </div>
       </div>
       <div class="mdl-card__menu">
         <button id="share_icon" hidden class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
