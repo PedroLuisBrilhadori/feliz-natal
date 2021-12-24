@@ -4,14 +4,17 @@ function init() {
     setTimeout(() => {
         changeCard('Nome Encontrado!', 'Seu nome foi encontrado clique no botão ok para ver seu cartão natalino');
         document.getElementById('button_ok').removeAttribute('disabled');
-        document.getElementById('button_ok').addEventListener(('click'), () => {
-            if(isName()){
-                let name = getName();
-                let text = `${name}, quero de desejar um feliz natal e um prospero ano novo! Se você recebeu isso, você é especial para mim. Não me pergunte como o site achou seu nome...`
-                changeCard(`Feliz Natal, ${name}`, text);
-            }
-        })
+        document.getElementById('p2').setAttribute('hidden', true);
     }, 3000);
+
+    document.getElementById('button_ok').addEventListener('click', () => {
+        if(isName()){
+            let name = getName();
+            let text = `${name}, quero de desejar um feliz natal e um prospero ano novo! Se você recebeu isso, você é especial para mim. Não me pergunte como o site achou seu nome...`
+            changeCard(`Feliz Natal, ${name}`, text);
+            document.getElementById('share_icon').removeAttribute('hidden');
+        }
+    })
 }
 
 function changeCard(title, text) {
