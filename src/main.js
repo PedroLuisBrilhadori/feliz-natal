@@ -5,6 +5,8 @@ function init() {
     let buttonOk = document.getElementById('button_ok');
     let buttonShare = document.getElementById('share_icon');
 
+    fetch('../assets/music.mp3');
+
     backgroudSlider();
     buttonOk.style.color = 'red';
 
@@ -23,7 +25,7 @@ function init() {
             changeCard('Nome Encontrado!', `${name.de}, te enviou um cartão, clique para ver!`);
             document.getElementById('button_ok').removeAttribute('disabled');
             document.getElementById('p2').setAttribute('hidden', true);
-document.getElementById('my-audio').play();
+            document.getElementById('my-audio').play();
             
         }, 2000);
     } else {
@@ -38,6 +40,7 @@ document.getElementById('my-audio').play();
     
     buttonShare.addEventListener('click', shareSetup);
 }
+
 
 function backgroudSlider() {
     document.body.style.background = `url('../assets/${randomNumbers(1, 15)}.jpg')`;
