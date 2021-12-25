@@ -51,7 +51,7 @@ function messageSetup(event) {
     if(isName()){
         let name = getName();
         let text = `
-            Feliz Natal, ${name.para}! Desejo que não falte alegria, paz e muita saúde nesta época tão mágica e cheia de cores, luzes e amores. Você é maravilhoso(a) e merecem um Natal deslumbrante.
+            Feliz Natal, ${name.para}! Desejo que não falte alegria, paz e muita saúde nesta época tão mágica e cheia de cores, luzes e amores. Você é maravilhoso(a) e merece um Natal deslumbrante.
         
             <br><br> Ass. ${name.de}`;
     
