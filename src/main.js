@@ -5,8 +5,6 @@ function init() {
     let buttonOk = document.getElementById('button_ok');
     let buttonShare = document.getElementById('share_icon');
 
-    fetch('../assets/music.mp3');
-
     backgroudSlider();
     buttonOk.style.color = 'red';
 
@@ -25,12 +23,14 @@ function init() {
             changeCard('Nome Encontrado!', `${name.de}, te enviou um cartão, clique para ver!`);
             document.getElementById('button_ok').removeAttribute('disabled');
             document.getElementById('p2').setAttribute('hidden', true);
+document.getElementById('my-audio').play();
             
         }, 2000);
     } else {
         document.getElementById('p2').setAttribute('hidden', true);
         document.getElementById('button_ok').removeAttribute('disabled');
         document.getElementById('button_ok').setAttribute('hidden', true);
+        document.getElementById('my-audio').play()
         messageSetup();
     }
 
@@ -38,7 +38,6 @@ function init() {
     
     buttonShare.addEventListener('click', shareSetup);
 }
-
 
 function backgroudSlider() {
     document.body.style.background = `url('../assets/${randomNumbers(1, 15)}.jpg')`;
@@ -49,12 +48,10 @@ function randomNumbers(min, max) {
 }
 
 function messageSetup(event) {
-    document.getElementById('my-audio').play();
-
     if(isName()){
         let name = getName();
         let text = `
-            Feliz Natal, ${name.para}! Desejo que não falte alegria, paz e muita saúde nesta época tão mágica e cheia de cores, luzes e amores. Vocês são seres humanos maravilhosos e merecem um Natal deslumbrante.
+            Feliz Natal, ${name.para}! Desejo que não falte alegria, paz e muita saúde nesta época tão mágica e cheia de cores, luzes e amores. Você é maravilhoso(a) e merece um Natal deslumbrante.
         
             <br><br> Ass. ${name.de}`;
     
@@ -64,7 +61,7 @@ function messageSetup(event) {
         document.getElementById('button_ok').setAttribute('hidden', true);
     } else {
         document.getElementById('button_ok').setAttribute('hidden', true);
-        let text = ` Feliz Natal, amigo! Desejo que não falte alegria, paz e muita saúde nesta época tão mágica e cheia de cores, luzes e amores. Vocês são seres humanos maravilhosos e merecem um Natal deslumbrante.`
+        let text = ` Feliz Natal, amigo! Desejo que não falte alegria, paz e muita saúde nesta época cheia de cores, luzes e amores. Você é maravilhoso(a) e merece um Natal deslumbrante.`
         changeCard(`Feliz Natal!`, text);
         document.getElementById('share_icon').removeAttribute('hidden');
     }
