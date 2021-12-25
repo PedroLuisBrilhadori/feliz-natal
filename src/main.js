@@ -7,6 +7,9 @@ function init() {
 
     fetch('../assets/music.mp3');
 
+    alert('Feliz natal');
+    document.getElementById('my-audio').play();
+
     backgroudSlider();
     buttonOk.style.color = 'red';
 
@@ -49,8 +52,6 @@ function randomNumbers(min, max) {
 }
 
 function messageSetup(event) {
-    document.getElementById('my-audio').play();
-
     if(isName()){
         let name = getName();
         let text = `
