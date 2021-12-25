@@ -1,6 +1,6 @@
 init();
 
-function init() {
+async function init() {
     let time = 3000;
     let buttonOk = document.getElementById('button_ok');
     let buttonShare = document.getElementById('share_icon');
@@ -23,14 +23,14 @@ function init() {
             changeCard('Nome Encontrado!', `${name.de}, te enviou um cartão, clique para ver!`);
             document.getElementById('button_ok').removeAttribute('disabled');
             document.getElementById('p2').setAttribute('hidden', true);
-document.getElementById('my-audio').play();
+            await document.getElementById('my-audio').play();
             
         }, 2000);
     } else {
         document.getElementById('p2').setAttribute('hidden', true);
         document.getElementById('button_ok').removeAttribute('disabled');
         document.getElementById('button_ok').setAttribute('hidden', true);
-        document.getElementById('my-audio').play()
+        await document.getElementById('my-audio').play()
         messageSetup();
     }
 
